@@ -9,6 +9,15 @@ const add = function (data) {
     data
   })
 }
+const signIn = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: app.host + '/sign-in',
+    method: 'POST',
+    data
+  })
+}
 module.exports = {
-  add
+  add,
+  signIn
 }

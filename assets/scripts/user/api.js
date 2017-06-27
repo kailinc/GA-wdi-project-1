@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 
 const app = require('../app.js')
 
@@ -17,7 +18,33 @@ const signIn = function (data) {
     data
   })
 }
+
+const changePwd = function (data) {
+  console.log(data)
+  console.log(store)
+  return $.ajax({
+    method: 'PATCH',
+    url: app.host + '/change-password/' + store.user.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const logOut = function () {
+  return $.ajax({
+    url: app.host + '/sign-out/' + store.user.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   add,
-  signIn
+  signIn,
+  changePwd,
+  logOut
 }

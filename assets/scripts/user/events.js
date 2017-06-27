@@ -20,7 +20,23 @@ const onSignIn = function (event) {
     .catch(userUi.onSignInError)
 }
 
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  userApi.changePwd(data)
+    .then(userUi.onChangeSuccess)
+    .catch(userUi.onChangeError)
+}
+
+const onLogOut = function (event) {
+  event.preventDefault()
+  userApi.logOut()
+    .then(userUi.onLogOutSuccess)
+    .catch(userUi.onLogOutError)
+}
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePassword,
+  onLogOut
 }

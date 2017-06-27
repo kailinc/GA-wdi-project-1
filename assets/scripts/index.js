@@ -15,5 +15,5 @@ $(() => {
 const userEvents = require('./user/events.js')
 
 $(() => {
-  window.alert('hi')
+
 })

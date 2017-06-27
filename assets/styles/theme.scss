@@ -17,10 +17,6 @@ body {
   background-color: $black;
 }
 
-.gameboard {
-  margin-left: 26.3%;
-}
-
 .gameButtons {
   margin-bottom: 80px;
   margin-left: 26.3%;
@@ -51,4 +47,29 @@ body {
 }
 .o {
   color: $lightOrange;
+}
+
+.gameBoard {
+  width: 50%;
+  background-color: black;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+#board li {
+	float: left;
+	margin: 20px;
+	height: 150px;
+	width: 150px;
+	font-size: 55px;
+	background:#333;
+	color: #ccc;
+	list-style: none;
+	text-align: center;
+	border-radius: 10px;
+}
+
+#board li:hover {
+	cursor: pointer;
+	background: #222;
 }

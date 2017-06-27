@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  host: 'https://ga-library-api.herokuapp.com'
+  host: 'https://aqueous-atoll-85096.herokuapp.com'
 }

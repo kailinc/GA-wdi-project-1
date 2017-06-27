@@ -1,22 +1,19 @@
-//line height make sure lines aren't too close, so you can read it
+@import 'colors';
 
-// contrast, dont make it diff too much
-
-// adjust font size to be larger for readability
-
-// line width, don't squeeze too much characters into a line
 body {
   background-color: silver;
   text-align: center;
+  color: white;
 }
 
 .box {
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .navBar {
   margin-bottom: 100px;
   width: 100%;
+  background-color: $black;
 }
 
 .gameboard {
@@ -24,7 +21,32 @@ body {
 }
 
 .gameButtons {
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   margin-left: 26.3%;
+}
+.footer {
+  background-color: black;
+}
 
+.gameBox {
+  background-color: grey;
+}
+
+.player1 {
+  background-color: $darkNeon;
+}
+
+.player2 {
+  background-color: $red;
+}
+
+.gameOption {
+  background-color: black;
+}
+
+.x {
+  color: $neon;
+}
+.o {
+  color: $lightOrange;
 }

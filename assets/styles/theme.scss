@@ -6,4 +6,25 @@
 
 // line width, don't squeeze too much characters into a line
 body {
+  background-color: silver;
+  text-align: center;
+}
+
+.box {
+  border: 1px solid black;
+}
+
+.navBar {
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.gameboard {
+  margin-left: 26.3%;
+}
+
+.gameButtons {
+  margin-bottom: 20px;
+  margin-left: 26.3%;
+
 }

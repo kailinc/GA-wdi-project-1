@@ -5,6 +5,18 @@
 // adjust font size to be larger for readability
 
 // line width, don't squeeze too much characters into a line
-body {
+$line-height: 1.8;
+$body-font-size: 18px;
+$vertical-margin: 40px;
+$horizontal-padding: 10px;
+* {
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  margin: $vertical-margin auto;
+  line-height: $line-height;
+  font-size: $body-font-size;
+  padding: 0 $horizontal-padding;
 }

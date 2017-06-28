@@ -10,6 +10,9 @@ const onStartGame = function (e) {
   gameApi.create()
     .then(gameUi.createGameSuccess)
     .catch(gameUi.createGameError)
+  // prevent game from ending, game must continue until tie or wins
+  $('#playBtn').off()
+  $('#playBtn').on('click', function (e) { e.preventDefault() })
 }
 
 const boardReady = function () {

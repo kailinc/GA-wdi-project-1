@@ -8,6 +8,8 @@ const onStartGame = function (e) {
   e.preventDefault()
   boardReady()
   gameApi.create()
+    .then(gameUi.createGameSuccess)
+    .catch(gameUi.createGameError)
 }
 
 const boardReady = function () {

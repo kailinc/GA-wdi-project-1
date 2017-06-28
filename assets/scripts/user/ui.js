@@ -9,7 +9,6 @@ const onSignUpError = function () {
 }
 const onSignInSuccess = function (data) {
   store.user = data.user
-  console.log(store)
   console.log('ok')
 }
 const onSignInError = function () {

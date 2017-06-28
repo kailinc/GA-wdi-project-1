@@ -2,6 +2,7 @@
 const gameApi = require('./gameApi.js')
 const gameUi = require('./gameUi.js')
 const boardEvents = require('./boardEvents.js')
+
 let localTurns = 0
 const x = 'x'
 const o = 'o'
@@ -38,7 +39,6 @@ const addSpot = function () {
       } else {
         $('#board li').text('=)')
       }
-      // $('#playBtn').on('click', boardEvents.onStartGame)
     } else {
       const index = $(this).attr('id') - 1
       gameApi.update(index, x, false)
@@ -59,7 +59,6 @@ const addSpot = function () {
       } else {
         $('#board li').text('=)')
       }
-      // $('#playBtn').on('click', boardEvents.onStartGame)
     } else {
       const index = $(this).attr('id') - 1
       gameApi.update(index, o, false)

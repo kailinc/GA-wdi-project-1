@@ -11,6 +11,7 @@ const createGameError = function (error) {
   console.log(error)
   console.log('try again buddy')
 }
+
 module.exports = {
   createGameSuccess,
   createGameError

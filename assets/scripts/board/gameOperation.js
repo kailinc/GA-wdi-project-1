@@ -36,6 +36,7 @@ const addSpot = function () {
       if (checkWin(x) === true) {
         updateHeadline(x)
         $('#board li').text(x)
+        addWin(x)
       } else {
         $('#board li').text('=)')
       }
@@ -56,6 +57,7 @@ const addSpot = function () {
       if (checkWin(o) === true) {
         updateHeadline(o)
         $('#board li').text(o)
+        addWin(o)
       } else {
         $('#board li').text('=)')
       }
@@ -100,6 +102,12 @@ const checkWin = function (player) {
   } else {
     return false
   }
+}
+
+const addWin = function (player) {
+  let win = parseInt($('#' + player).text())
+  win += 1
+  $('#' + player).text(win)
 }
 
 const updateHeadline = function (player) {

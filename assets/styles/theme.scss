@@ -16,14 +16,10 @@ body {
   width: 100%;
   background-color: $black;
 }
-
-.gameButtons {
-  margin-bottom: 80px;
-  margin-left: 26.3%;
-}
 .footer {
   background-color: black;
   font-size: $body-font-size * .75;
+  margin-top: 50px;
 }
 
 .player1 {
@@ -34,10 +30,6 @@ body {
   background-color: $red;
 }
 
-.gameOption {
-  background-color: black;
-}
-
 .x {
   color: $neon;
 }
@@ -46,7 +38,7 @@ body {
 }
 
 .gameBoard {
-  width: 620px;
+  width: 470px;
   background-color: black;
   margin: 20px auto;
   padding: 20px;
@@ -55,8 +47,8 @@ body {
 #board li {
 	float: left;
 	margin: 20px;
-	height: 150px;
-	width: 150px;
+	height: 100px;
+	width: 100px;
 	font-size: 55px;
 	background:#333;
 	color: #ccc;
@@ -72,4 +64,8 @@ body {
 
 form {
   color: black;
+}
+
+#playBtn {
+  padding: 10px 26px;
 }

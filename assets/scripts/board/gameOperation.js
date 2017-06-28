@@ -29,16 +29,16 @@ const addSpot = function () {
     localTurns += 1
     if (checkWinTie(x) === true) {
       const index = $(this).attr('id') - 1
-      const value = x
-      const over = true
-      gameApi.update(index, value, over)
+      gameApi.update(index, x, true)
         .then(gameUi.gameOverSuccess)
         .catch(gameUi.gameOverError)
+      if (checkWin(x) === true) {
+        updateHeadline(x)
+      }
+
     } else {
       const index = $(this).attr('id') - 1
-      const value = x
-      const over = false
-      gameApi.update(index, value, over)
+      gameApi.update(index, x, false)
         .then(gameUi.gameContinueSuccess)
         .catch(gameUi.gameContinueError)
       console.log('We don\'t')
@@ -48,17 +48,15 @@ const addSpot = function () {
     localTurns += 1
     if (checkWinTie(o) === true) {
       const index = $(this).attr('id') - 1
-      const value = o
-      const over = true
-      gameApi.update(index, value, over)
+      gameApi.update(index, o, true)
         .then(gameUi.gameOverSuccess)
         .catch(gameUi.gameOverError)
-      console.log('we have a winner')
+      if (checkWin(o) === true) {
+        updateHeadline(o)
+      }
     } else {
       const index = $(this).attr('id') - 1
-      const value = o
-      const over = false
-      gameApi.update(index, value, over)
+      gameApi.update(index, o, false)
         .then(gameUi.gameContinueSuccess)
         .catch(gameUi.gameContinueError)
       console.log('We don\'t')
@@ -88,6 +86,25 @@ const checkWinTie = function (player) {
   }
 }
 
+const checkWin = function (player) {
+  if (spot1.hasClass(player) && spot2.hasClass(player) && spot3.hasClass(player) ||
+  spot4.hasClass(player) && spot5.hasClass(player) && spot6.hasClass(player) ||
+  spot7.hasClass(player) && spot8.hasClass(player) && spot9.hasClass(player) ||
+  spot1.hasClass(player) && spot4.hasClass(player) && spot7.hasClass(player) ||
+  spot2.hasClass(player) && spot5.hasClass(player) && spot8.hasClass(player) ||
+  spot3.hasClass(player) && spot6.hasClass(player) && spot9.hasClass(player) ||
+  spot1.hasClass(player) && spot5.hasClass(player) && spot9.hasClass(player) ||
+  spot3.hasClass(player) && spot5.hasClass(player) && spot7.hasClass(player)
+) {
+    return true
+  } else {
+    return false
+  }
+}
+
+const updateHeadline = function (player) {
+  $('#gameResult').text('Player ' + player.toUpperCase() + ' wins this time!')
+}
 module.exports = {
   gameOperation
 }

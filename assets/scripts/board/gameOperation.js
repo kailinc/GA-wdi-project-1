@@ -1,4 +1,7 @@
 'use strict'
+const gameApi = require('./gameApi.js')
+const gameUi = require('./gameUi.js')
+
 let localTurns = 0
 const x = 'x'
 const o = 'o'
@@ -25,22 +28,39 @@ const addSpot = function () {
     spot.text(x).addClass('x')
     localTurns += 1
     if (checkWinTie(x) === true) {
-      console.log('We have a winner')
-      // game over = true
+      const index = $(this).attr('id') - 1
+      const value = x
+      const over = true
+      gameApi.update(index, value, over)
+        .then(gameUi.gameOverSuccess)
+        .catch(gameUi.gameOverError)
     } else {
+      const index = $(this).attr('id') - 1
+      const value = x
+      const over = false
+      gameApi.update(index, value, over)
+        .then(gameUi.gameContinueSuccess)
+        .catch(gameUi.gameContinueError)
       console.log('We don\'t')
-      // game over = false
     }
-    // checkWin(x)
-    // updateboard AJAX
-
-    // checkWin(x);
   } else if (spot.text() === '-' && localTurns % 2 === 1) {
     spot.text(o).addClass('o')
     localTurns += 1
     if (checkWinTie(o) === true) {
+      const index = $(this).attr('id') - 1
+      const value = o
+      const over = true
+      gameApi.update(index, value, over)
+        .then(gameUi.gameOverSuccess)
+        .catch(gameUi.gameOverError)
       console.log('we have a winner')
     } else {
+      const index = $(this).attr('id') - 1
+      const value = o
+      const over = false
+      gameApi.update(index, value, over)
+        .then(gameUi.gameContinueSuccess)
+        .catch(gameUi.gameContinueError)
       console.log('We don\'t')
     }
 

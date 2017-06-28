@@ -1,7 +1,7 @@
 'use strict'
 const gameApi = require('./gameApi.js')
 const gameUi = require('./gameUi.js')
-
+const boardEvents = require('./boardEvents.js')
 let localTurns = 0
 const x = 'x'
 const o = 'o'
@@ -34,14 +34,16 @@ const addSpot = function () {
         .catch(gameUi.gameOverError)
       if (checkWin(x) === true) {
         updateHeadline(x)
+        $('#board li').text(x)
+      } else {
+        $('#board li').text('=)')
       }
-
+      // $('#playBtn').on('click', boardEvents.onStartGame)
     } else {
       const index = $(this).attr('id') - 1
       gameApi.update(index, x, false)
         .then(gameUi.gameContinueSuccess)
         .catch(gameUi.gameContinueError)
-      console.log('We don\'t')
     }
   } else if (spot.text() === '-' && localTurns % 2 === 1) {
     spot.text(o).addClass('o')
@@ -53,18 +55,17 @@ const addSpot = function () {
         .catch(gameUi.gameOverError)
       if (checkWin(o) === true) {
         updateHeadline(o)
+        $('#board li').text(o)
+      } else {
+        $('#board li').text('=)')
       }
+      // $('#playBtn').on('click', boardEvents.onStartGame)
     } else {
       const index = $(this).attr('id') - 1
       gameApi.update(index, o, false)
         .then(gameUi.gameContinueSuccess)
         .catch(gameUi.gameContinueError)
-      console.log('We don\'t')
     }
-
-    // checkWin(o);
-  } else {
-    console.log('This spot is marked! Please Choose another Spot!')
   }
 }
 

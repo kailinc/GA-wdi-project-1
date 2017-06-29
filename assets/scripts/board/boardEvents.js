@@ -4,6 +4,7 @@ const gameApi = require('./gameApi.js')
 const gameUi = require('./gameUi.js')
 const getFormFields = require('../../../lib/get-form-fields')
 const gameReg = require('./gameOperation.js')
+const statsInfo = require('../statsInfo.js')
 
 const onStartGame = function (e) {
   e.preventDefault()
@@ -15,17 +16,19 @@ const onStartGame = function (e) {
   gameReg.gameOperation(0)
 }
 
-const onCheckWins = function (e) {
+const onCheckStats = function (e) {
   e.preventDefault()
   gameApi.index()
-    .then(gameUi.checkWinSuccess)
-    .then(gameUi.checkWinError)
+    .then(gameUi.checkStatsSuccess)
+    .catch(gameUi.checkStatsError)
 }
+
 const boardReady = function () {
   // gets the board ready for clearing disable, x, o (class + text)
   $('#board li').removeClass('disable').removeClass('x').removeClass('o').text('-')
 }
+
 module.exports = {
   onStartGame,
-  onCheckWins
+  onCheckStats
 }

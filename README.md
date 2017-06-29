@@ -90,16 +90,16 @@ this blueprint to write the functions associated with the game event.
 
 Whiteboarding Problems
 
-![apiDoc](/VIEWME/Problem Solving/apiDoc.jpg)
+![apiDoc](/VIEWME/problemSolving/apiDoc.jpg)
 
 
-![apiDoc](/VIEWME/Problem Solving/visualizeBoard.jpg)
+![apiDoc](/VIEWME/problemSolving/visualizeBoard.jpg)
 
 
-![apiDoc](/VIEWME/Problem Solving/whiteboardingCreateUpdateGame.jpg)
+![apiDoc](/VIEWME/problemSolving/whiteboardingCreateUpdateGame.jpg)
 
 
-![apiDoc](/VIEWME/Problem Solving/whiteboardingStats.jpg)
+![apiDoc](/VIEWME/problemSolving/whiteboardingStats.jpg)
 
 
 

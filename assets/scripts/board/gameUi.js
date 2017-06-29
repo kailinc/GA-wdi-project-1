@@ -52,14 +52,14 @@ const updateStats = function (data) {
       if (checkWin(data[i].cells) === true) {
         wins += 1
       }
+      loses = totalGames - wins
+      winPercent = Math.round((wins / totalGames) * 100)
     }
-    console.log(wins)
-    console.log(totalGames)
-    // console.log('json')
-  } else {
-    console.log(' else 0')
   }
-  // console.log(data[0])
+  $('#wins').text('Player 1 won ' + wins + ' games.')
+  $('#loses').text('Player 1 lost ' + loses + ' games.')
+  $('#games').text('Player 1 played ' + totalGames + ' games.')
+  $('#winPercent').text('Player 1 won ' + winPercent + '% of user\'s games.')
 }
 
 const checkWin = function (array) {
@@ -87,6 +87,7 @@ const checkWin = function (array) {
 const checkX = function (string) {
   return string === 'x'
 }
+
 module.exports = {
   createGameSuccess,
   createGameError,

@@ -1,13 +1,13 @@
 'use strict'
 
 const store = require('../store')
-const app = require('../app.js')
+const config = require('../config.js')
 const gameInfo = require('../gameInfo')
 
 const create = function () {
   // console.log(store)
   return $.ajax({
-    url: app.host + '/games',
+    url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -19,7 +19,7 @@ const create = function () {
 const update = function (position, player, status) {
   // console.log(data)
   return $.ajax({
-    url: app.host + '/games/' + gameInfo.game.game.id,
+    url: config.apiOrigin + '/games/' + gameInfo.game.game.id,
     method: 'PATCH',
     contentType: 'application/json',
     headers: {
@@ -39,7 +39,7 @@ const update = function (position, player, status) {
 
 const index = function () {
   return $.ajax({
-    url: app.host + '/games?over=true',
+    url: config.apiOrigin + '/games?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

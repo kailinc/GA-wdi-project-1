@@ -5,7 +5,7 @@ const app = require('../app.js')
 const gameInfo = require('../gameInfo')
 
 const create = function () {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     url: app.host + '/games',
     method: 'POST',

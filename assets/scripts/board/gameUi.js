@@ -24,10 +24,10 @@ const gameOverError = function (error) {
 }
 
 const gameContinueSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
 }
-const gameContinueError = function (error) {
-  console.log(error)
+const gameContinueError = function () {
+  // console.log(error)
 }
 
 const checkStatsSuccess = function (data) {
@@ -46,7 +46,7 @@ const updateStats = function (data) {
   let totalGames = data.length
   let loses = 0
   let winPercent = 0
-  console.log(data)
+  // console.log(data)
   if (totalGames !== 0) {
     for (let i = 0; i < data.length; i++) {
       if (checkWin(data[i].cells) === true) {

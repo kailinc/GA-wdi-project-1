@@ -19,8 +19,8 @@ const signIn = function (data) {
 }
 
 const changePwd = function (data) {
-  console.log(data)
-  console.log(store)
+  // console.log(data)
+  // console.log(store)
   return $.ajax({
     method: 'PATCH',
     url: app.host + '/change-password/' + store.user.id,

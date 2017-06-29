@@ -2,33 +2,34 @@
 const store = require('../store')
 
 const onSignUpSuccess = function () {
-  // console.log('ok')
+  $('.signUp input').css('background-color', '#228a11')
 }
 const onSignUpError = function () {
-  // console.log('try again buddy!')
+  $('.signUp input').css('background-color', 'red')
 }
 const onSignInSuccess = function (data) {
   store.user = data.user
-  // console.log('ok')
+  $('.signIn input').css('background-color', '#228a11')
 }
 const onSignInError = function () {
-  // console.log('try again buddy!')
+  $('.signIn input').css('background-color', 'red')
 }
 
 const onChangeSuccess = function () {
-  // console.log('password changed')
+  $('.changePassword input').css('background-color', '#228a11')
 }
 const onChangeError = function () {
-  // console.log(error)
+  $('.changePassword input').css('background-color', 'red')
 }
 
 const onLogOutSuccess = function () {
   // console.log('logged out')
   store.user = null
+  $('.userForms input').css('background-color', 'white').val('')
 }
 
-const onLogOutError = function (error) {
-  console.log(error)
+const onLogOutError = function () {
+  // console.log(error)
 }
 
 module.exports = {

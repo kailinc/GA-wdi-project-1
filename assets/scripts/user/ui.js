@@ -25,7 +25,7 @@ const onChangeError = function () {
 const onLogOutSuccess = function () {
   // console.log('logged out')
   store.user = null
-  $('.userForms input').css('background-color', 'white').val('')
+  $('.userForms input').css('background-color', 'white')
 }
 
 const onLogOutError = function () {

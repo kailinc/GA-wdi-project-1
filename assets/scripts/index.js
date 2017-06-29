@@ -21,4 +21,5 @@ $(() => {
   $('.changePassword').on('submit', userEvents.onChangePassword)
   $('.logOut').on('click', userEvents.onLogOut)
   $('#playBtn').on('click', boardEvents.onStartGame)
+  $('.totalWins').on('submit', boardEvents.onCheckWins)
 })

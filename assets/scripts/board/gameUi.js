@@ -28,11 +28,22 @@ const gameContinueSuccess = function (data) {
 const gameContinueError = function (error) {
   console.log(error)
 }
+
+const checkWinSuccess = function (data) {
+  console.log(data)
+  console.log('ok')
+}
+const checkWinError = function (error) {
+  console.log(error)
+  console.log('try again buddy')
+}
 module.exports = {
   createGameSuccess,
   createGameError,
   gameOverSuccess,
   gameOverError,
   gameContinueError,
-  gameContinueSuccess
+  gameContinueSuccess,
+  checkWinError,
+  checkWinSuccess
 }

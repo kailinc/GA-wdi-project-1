@@ -37,7 +37,18 @@ const update = function (position, player, status) {
   })
 }
 
+const index = function () {
+  return $.ajax({
+    url: app.host + '/games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   create,
-  update
+  update,
+  index
 }

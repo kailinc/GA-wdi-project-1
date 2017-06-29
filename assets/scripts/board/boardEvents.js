@@ -15,10 +15,17 @@ const onStartGame = function (e) {
   gameReg.gameOperation(0)
 }
 
+const onCheckWins = function (e) {
+  e.preventDefault()
+  gameApi.index()
+    .then(gameUi.checkWinSuccess)
+    .then(gameUi.checkWinError)
+}
 const boardReady = function () {
   // gets the board ready for clearing disable, x, o (class + text)
   $('#board li').removeClass('disable').removeClass('x').removeClass('o').text('-')
 }
 module.exports = {
-  onStartGame
+  onStartGame,
+  onCheckWins
 }

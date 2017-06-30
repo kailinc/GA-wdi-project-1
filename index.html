@@ -19,7 +19,7 @@
           <div class="col-xs-4 box nav small">
             <h5>Kai</h5>
           </div>
-          <div class="col-xs-2 box nav small">
+          <div class="col-xs-2 box nav small userIn">
             <h5>Sign Up</h5>
             <form class="signUp userForms">
               <input  name="credentials[email]" type="text" placeholder="Email">
@@ -28,7 +28,7 @@
               <input type="submit" value="Submit">
             </form>
           </div>
-          <div class="col-xs-2 box nav small">
+          <div class="col-xs-2 box nav small userIn">
             <h5>Login</h5>
             <form class="signIn userForms">
               <input  name="credentials[email]" type="text" placeholder="Email">
@@ -36,7 +36,7 @@
               <input type="submit" value="Submit">
             </form>
           </div>
-          <div class="col-xs-2 box nav small">
+          <div class="col-xs-2 box nav small userOut">
             <h5>Change Password</h5>
             <form class="changePassword userForms">
               <input name="passwords[old]" type="password" placeholder="Old Password">
@@ -44,7 +44,7 @@
               <input type="submit" value="Submit">
             </form>
           </div>
-          <div class="col-xs-2 box nav small">
+          <div class="col-xs-2 box nav small userOut">
             <h5>Log Out</h5>
             <form class="logOut">
               <input type="submit" value="Log Out">
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="userOut">
         <form class="totalWins">
           <input type="submit" value="See Stats">
           <h3 id="wins"></h3>
@@ -94,7 +94,7 @@
   			</ul>
 
         <div style="clear: both;"></div>
-        <form class="playBtn">
+        <form class="playBtn userOut">
           <input type="submit" id='playBtn' value="Play">
         </form>
 

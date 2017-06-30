@@ -32,6 +32,8 @@ const changePwd = function (data) {
 }
 
 const logOut = function () {
+  // console.log(store.user.id)
+  // console.log(store.user.id)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',

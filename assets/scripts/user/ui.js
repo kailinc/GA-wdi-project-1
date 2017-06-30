@@ -10,6 +10,8 @@ const onSignUpError = function () {
 const onSignInSuccess = function (data) {
   store.user = data.user
   $('.signIn input').css('background-color', '#228a11')
+  $('.userOut').css('display', 'block')
+  $('.userIn').css('display', 'none')
 }
 const onSignInError = function () {
   $('.signIn input').css('background-color', 'red')
@@ -26,6 +28,8 @@ const onLogOutSuccess = function () {
   // console.log('logged out')
   store.user = null
   $('.userForms input').css('background-color', 'white')
+  $('.userOut').css('display', 'none')
+  $('.userIn').css('display', 'block')
 }
 
 const onLogOutError = function () {

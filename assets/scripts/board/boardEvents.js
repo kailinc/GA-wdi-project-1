@@ -47,7 +47,7 @@ const onCheckJoin = function () {
     .then(gameUi.checkGameSuccess)
     .catch(gameUi.checkGameError)
   if (gameInfo.game.game.player_o) {
-    $('#message').text('You are playing against ' + gameInfo.game.game.player_o.email)
+    $('#message').text('You are playing against ' + gameInfo.game.game.player_o.email + '\n' + gameInfo.game.game.player_x.email + ' starts!')
   } else {
     $('#message').text('Waiting for players')
   }

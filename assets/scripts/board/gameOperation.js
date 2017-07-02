@@ -18,6 +18,8 @@ const spot7 = $('#7')
 const spot8 = $('#8')
 const spot9 = $('#9')
 
+// let boardArray = ['', '', '', '', '', '', '', '', '']
+
 const gameOperation = function (turns) {
   $('#board li').on('click', addSpot)
   localTurns = turns
@@ -28,6 +30,7 @@ const addSpot = function () {
   if (spot.text() === '-' && localTurns % 2 === 0) {
     spot.text(x).addClass('x')
     localTurns += 1
+    // makeArray()
     if (checkWinTie(x) === true) {
       const index = $(this).attr('id') - 1
       gameApi.update(index, x, true)
@@ -37,6 +40,7 @@ const addSpot = function () {
         updateHeadline(x)
         $('#board li').text(x)
         addWin(x)
+        // boardArray = ['', '', '', '', '', '', '', '', '']
       } else {
         $('#board li').text('=)')
       }
@@ -49,6 +53,7 @@ const addSpot = function () {
   } else if (spot.text() === '-' && localTurns % 2 === 1) {
     spot.text(o).addClass('o')
     localTurns += 1
+    // makeArray()
     if (checkWinTie(o) === true) {
       const index = $(this).attr('id') - 1
       gameApi.update(index, o, true)
@@ -58,6 +63,7 @@ const addSpot = function () {
         updateHeadline(o)
         $('#board li').text(o)
         addWin(o)
+        // boardArray = ['', '', '', '', '', '', '', '', '']
       } else {
         $('#board li').text('=)')
       }
@@ -109,6 +115,12 @@ const addWin = function (player) {
   win += 1
   $('#' + player).text(win)
 }
+
+// const makeArray = function () {
+//   $('#board li').each(function (index) {
+//     boardArray[index] = $('#' + (index + 1)).text()
+//   })
+// }
 
 const updateHeadline = function (player) {
   $('#gameResult').text('Player ' + player.toUpperCase() + ' wins this time!')

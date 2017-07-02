@@ -14,6 +14,7 @@ const onStartGame = function (e) {
     .catch(gameUi.createGameError)
   // prevent game from ending, game must continue until tie or wins
   gameReg.gameOperation(0)
+  // $('#gameId').text(gameInfo.)
 }
 
 const onCheckStats = function (e) {

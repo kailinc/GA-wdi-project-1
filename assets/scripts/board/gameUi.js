@@ -6,6 +6,7 @@ const statsInfo = require('../statsInfo.js')
 
 const createGameSuccess = function (data) {
   gameInfo.game = data
+  $('#gameId').text('Game Id: ' + gameInfo['game']['game']['id'])
   // console.log(gameInfo.game)
 }
 
@@ -96,5 +97,7 @@ module.exports = {
   gameContinueError,
   gameContinueSuccess,
   checkStatsError,
-  checkStatsSuccess
+  checkStatsSuccess,
+  checkWin,
+  checkX
 }

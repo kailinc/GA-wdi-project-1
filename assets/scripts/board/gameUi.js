@@ -3,11 +3,15 @@
 const store = require('../store')
 const gameInfo = require('../gameInfo')
 const statsInfo = require('../statsInfo.js')
+const boardEvents = require('./boardEvents.js')
+const multi = require('./multi.js')
 
 const createGameSuccess = function (data) {
   gameInfo.game = data
   $('#gameId').text('Game Id: ' + gameInfo['game']['game']['id'])
-  // console.log(gameInfo.game)
+  if (!gameInfo['game']['game']['player_o']) {
+    $('#message').text('Waiting for player to join')
+  }
 }
 
 const createGameError = function (error) {
@@ -40,10 +44,12 @@ const checkStatsSuccess = function (data) {
 
 const checkStatsError = function (error) {
   console.log(error)
+  boardEvents.boardReady()
 }
 
 const joinGameSuccess = function (data) {
-  console.log(data)
+  multi.game = data.game
+  console.log(multi['game'])
   $('#message').text('You are playing ' + data['game']['player_x']['email'])
 }
 const joinGameError = function (error) {
@@ -97,6 +103,12 @@ const checkX = function (string) {
   return string === 'x'
 }
 
+const checkGameSuccess = function (data) {
+  gameInfo.game = data
+}
+
+const checkGameError = function (error) {
+}
 module.exports = {
   createGameSuccess,
   createGameError,
@@ -109,5 +121,7 @@ module.exports = {
   checkWin,
   checkX,
   joinGameSuccess,
-  joinGameError
+  joinGameError,
+  checkGameSuccess,
+  checkGameError
 }

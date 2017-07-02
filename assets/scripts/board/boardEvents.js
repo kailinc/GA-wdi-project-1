@@ -2,9 +2,9 @@
 
 const gameApi = require('./gameApi.js')
 const gameUi = require('./gameUi.js')
-const getFormFields = require('../../../lib/get-form-fields')
 const gameReg = require('./gameOperation.js')
 const statsInfo = require('../statsInfo.js')
+const gameInfo = require('../gameInfo')
 
 const onStartGame = function (e) {
   e.preventDefault()
@@ -14,7 +14,6 @@ const onStartGame = function (e) {
     .catch(gameUi.createGameError)
   // prevent game from ending, game must continue until tie or wins
   gameReg.gameOperation(0)
-  // $('#gameId').text(gameInfo.)
 }
 
 const onCheckStats = function (e) {
@@ -36,8 +35,29 @@ const onJoinGame = function (event) {
     .then(gameUi.joinGameSuccess)
     .catch(gameUi.joinGameError)
 }
+
+const onCheckBoard = function (event) {
+  event.preventDefault()
+  alert('ok')
+}
+
+const onCheckJoin = function () {
+  event.preventDefault()
+  gameApi.show(gameInfo.game.game.id)
+    .then(gameUi.checkGameSuccess)
+    .catch(gameUi.checkGameError)
+  if (gameInfo.game.game.player_o) {
+    $('#message').text('You are playing against ' + gameInfo.game.game.player_o.email)
+  } else {
+    $('#message').text('Waiting for players')
+  }
+}
+
 module.exports = {
   onStartGame,
   onCheckStats,
-  onJoinGame
+  onJoinGame,
+  boardReady,
+  onCheckBoard,
+  onCheckJoin
 }

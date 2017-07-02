@@ -23,4 +23,6 @@ $(() => {
   $('#playBtn').on('click', boardEvents.onStartGame)
   $('.totalWins').on('submit', boardEvents.onCheckStats)
   $('.joinGame').on('submit', boardEvents.onJoinGame)
+  $('.checkJoin').on('submit', boardEvents.onCheckJoin)
+  $('.checkBoard').on('submit', boardEvents.onCheckBoard)
 })

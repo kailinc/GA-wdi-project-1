@@ -47,8 +47,19 @@ const index = function () {
   })
 }
 
+const joinGame = function (gameId) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + gameId,
+    method: 'PATCH',
+    contentType: 'application/json',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   create,
   update,
-  index
+  index,
+  joinGame
 }

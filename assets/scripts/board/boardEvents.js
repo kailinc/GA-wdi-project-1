@@ -29,7 +29,15 @@ const boardReady = function () {
   $('#board li').removeClass('disable').removeClass('x').removeClass('o').text('-')
 }
 
+const onJoinGame = function (event) {
+  event.preventDefault()
+  let gameId = $('#info').val()
+  gameApi.joinGame(gameId)
+    .then(gameUi.joinGameSuccess)
+    .catch(gameUi.joinGameError)
+}
 module.exports = {
   onStartGame,
-  onCheckStats
+  onCheckStats,
+  onJoinGame
 }

@@ -42,6 +42,14 @@ const checkStatsError = function (error) {
   console.log(error)
 }
 
+const joinGameSuccess = function (data) {
+  console.log(data)
+  $('#message').text('You are playing ' + data['game']['player_x']['email'])
+}
+const joinGameError = function (error) {
+  console.log(error)
+}
+
 const updateStats = function (data) {
   let wins = 0
   let totalGames = data.length
@@ -99,5 +107,7 @@ module.exports = {
   checkStatsError,
   checkStatsSuccess,
   checkWin,
-  checkX
+  checkX,
+  joinGameSuccess,
+  joinGameError
 }

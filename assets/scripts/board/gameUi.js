@@ -64,10 +64,12 @@ const updateStats = function (data) {
   // console.log(data)
   if (totalGames !== 0) {
     for (let i = 0; i < data.length; i++) {
-      if (checkWin(data[i].cells) === true) {
+      if (checkWin(data[i].cells, 'x') === true) {
         wins += 1
       }
-      loses = totalGames - wins
+      if (checkWin(data[i].cells, 'o') === true) {
+        loses += 1
+      }
       winPercent = Math.round((wins / totalGames) * 100)
     }
   }
@@ -77,30 +79,26 @@ const updateStats = function (data) {
   $('#winPercent').text('Player 1 won ' + winPercent + '% of user\'s games.')
 }
 
-const checkWin = function (array) {
-  if (checkX(array[0]) && checkX(array[1]) && checkX(array[2])) {
+const checkWin = function (array, marker) {
+  if (array[0] === array[1] && array[1] === array[2] && array[2] === marker) {
     return true
-  } else if (checkX(array[3]) && checkX(array[4]) && checkX(array[5])) {
+  } else if (array[3] === array[4] && array[4] === array[5] && array[5] === marker) {
     return true
-  } else if (checkX(array[6]) && checkX(array[7]) && checkX(array[8])) {
+  } else if (array[6] === array[7] && array[7] === array[8] && array[8] === marker) {
     return true
-  } else if (checkX(array[0]) && checkX(array[3]) && checkX(array[6])) {
+  } else if (array[0] === array[3] && array[3] === array[6] && array[6] === marker) {
     return true
-  } else if (checkX(array[1]) && checkX(array[4]) && checkX(array[7])) {
+  } else if (array[1] === array[4] && array[4] === array[7] && array[7] === marker) {
     return true
-  } else if (checkX(array[2]) && checkX(array[5]) && checkX(array[8])) {
+  } else if (array[2] === array[5] && array[5] === array[8] && array[8] === marker) {
     return true
-  } else if (checkX(array[0]) && checkX(array[4]) && checkX(array[8])) {
+  } else if (array[0] === array[4] && array[4] === array[8] && array[8] === marker) {
     return true
-  } else if (checkX(array[2]) && checkX(array[4]) && checkX(array[6])) {
+  } else if (array[2] === array[4] && array[4] === array[6] && array[6] === marker) {
     return true
   } else {
     return false
   }
-}
-
-const checkX = function (string) {
-  return string === 'x'
 }
 
 const checkGameSuccess = function (data) {
@@ -119,7 +117,6 @@ module.exports = {
   checkStatsError,
   checkStatsSuccess,
   checkWin,
-  checkX,
   joinGameSuccess,
   joinGameError,
   checkGameSuccess,

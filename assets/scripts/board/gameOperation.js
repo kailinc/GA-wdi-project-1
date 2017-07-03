@@ -27,7 +27,7 @@ const gameOperation = function (turns) {
 
 const addSpot = function () {
   const spot = $(this)
-  if (spot.text() === '-' && localTurns % 2 === 0) {
+  if (spot.text() === '' && localTurns % 2 === 0) {
     spot.text(x).addClass('x')
     localTurns += 1
     makeArray()
@@ -51,7 +51,7 @@ const addSpot = function () {
         .then(gameUi.gameContinueSuccess)
         .catch(gameUi.gameContinueError)
     }
-  } else if (spot.text() === '-' && localTurns % 2 === 1) {
+  } else if (spot.text() === '' && localTurns % 2 === 1) {
     spot.text(o).addClass('o')
     localTurns += 1
     makeArray()

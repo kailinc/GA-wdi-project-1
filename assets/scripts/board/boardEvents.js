@@ -5,6 +5,7 @@ const gameUi = require('./gameUi.js')
 const gameReg = require('./gameOperation.js')
 const statsInfo = require('../statsInfo.js')
 const gameInfo = require('../gameInfo')
+const host = require('../multiplayer/hostGameOperations.js')
 
 const onStartGame = function (e) {
   e.preventDefault()
@@ -25,7 +26,7 @@ const onCheckStats = function (e) {
 
 const boardReady = function () {
   // gets the board ready for clearing disable, x, o (class + text)
-  $('#board li').removeClass('disable').removeClass('x').removeClass('o').text('-')
+  $('#board li').removeClass('disable').removeClass('x').removeClass('o').text('')
 }
 
 const onJoinGame = function (event) {
@@ -48,6 +49,9 @@ const onCheckJoin = function () {
     .catch(gameUi.checkGameError)
   if (gameInfo.game.game.player_o) {
     $('#message').text('You are playing against ' + gameInfo.game.game.player_o.email + '\n' + gameInfo.game.game.player_x.email + ' starts!')
+    $('.checkJoin').hide()
+    $('.playBtn').hide()
+    host.startGame()
   } else {
     $('#message').text('Waiting for players')
   }

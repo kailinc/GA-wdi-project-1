@@ -18,7 +18,7 @@ const spot7 = $('#7')
 const spot8 = $('#8')
 const spot9 = $('#9')
 
-// let boardArray = ['', '', '', '', '', '', '', '', '']
+let boardArray = ['', '', '', '', '', '', '', '', '']
 
 const gameOperation = function (turns) {
   $('#board li').on('click', addSpot)
@@ -30,17 +30,18 @@ const addSpot = function () {
   if (spot.text() === '-' && localTurns % 2 === 0) {
     spot.text(x).addClass('x')
     localTurns += 1
-    // makeArray()
-    if (checkWinTie(x) === true) {
+    makeArray()
+    console.log(boardArray)
+    if (gameUi.checkWin(boardArray, x) || localTurns === 9) {
       const index = $(this).attr('id') - 1
       gameApi.update(index, x, true)
         .then(gameUi.gameOverSuccess)
         .catch(gameUi.gameOverError)
-      if (checkWin(x) === true) {
+      if (gameUi.checkWin(boardArray, x)) {
         updateHeadline(x)
         $('#board li').text(x)
         addWin(x)
-        // boardArray = ['', '', '', '', '', '', '', '', '']
+        boardArray = ['', '', '', '', '', '', '', '', '']
       } else {
         $('#board li').text('=)')
       }
@@ -53,17 +54,18 @@ const addSpot = function () {
   } else if (spot.text() === '-' && localTurns % 2 === 1) {
     spot.text(o).addClass('o')
     localTurns += 1
-    // makeArray()
-    if (checkWinTie(o) === true) {
+    makeArray()
+    console.log(boardArray)
+    if (gameUi.checkWin(boardArray, o) || localTurns === 9) {
       const index = $(this).attr('id') - 1
       gameApi.update(index, o, true)
         .then(gameUi.gameOverSuccess)
         .catch(gameUi.gameOverError)
-      if (checkWin(o) === true) {
+      if (gameUi.checkWin(boardArray, o)) {
         updateHeadline(o)
         $('#board li').text(o)
         addWin(o)
-        // boardArray = ['', '', '', '', '', '', '', '', '']
+        boardArray = ['', '', '', '', '', '', '', '', '']
       } else {
         $('#board li').text('=)')
       }
@@ -76,51 +78,17 @@ const addSpot = function () {
   }
 }
 
-const checkWinTie = function (player) {
-  if (spot1.hasClass(player) && spot2.hasClass(player) && spot3.hasClass(player) ||
-  spot4.hasClass(player) && spot5.hasClass(player) && spot6.hasClass(player) ||
-  spot7.hasClass(player) && spot8.hasClass(player) && spot9.hasClass(player) ||
-  spot1.hasClass(player) && spot4.hasClass(player) && spot7.hasClass(player) ||
-  spot2.hasClass(player) && spot5.hasClass(player) && spot8.hasClass(player) ||
-  spot3.hasClass(player) && spot6.hasClass(player) && spot9.hasClass(player) ||
-  spot1.hasClass(player) && spot5.hasClass(player) && spot9.hasClass(player) ||
-  spot3.hasClass(player) && spot5.hasClass(player) && spot7.hasClass(player)
-) {
-    return true
-  } else if (localTurns === 9) {
-    return true
-  } else {
-    return false
-  }
-}
-
-const checkWin = function (player) {
-  if (spot1.hasClass(player) && spot2.hasClass(player) && spot3.hasClass(player) ||
-  spot4.hasClass(player) && spot5.hasClass(player) && spot6.hasClass(player) ||
-  spot7.hasClass(player) && spot8.hasClass(player) && spot9.hasClass(player) ||
-  spot1.hasClass(player) && spot4.hasClass(player) && spot7.hasClass(player) ||
-  spot2.hasClass(player) && spot5.hasClass(player) && spot8.hasClass(player) ||
-  spot3.hasClass(player) && spot6.hasClass(player) && spot9.hasClass(player) ||
-  spot1.hasClass(player) && spot5.hasClass(player) && spot9.hasClass(player) ||
-  spot3.hasClass(player) && spot5.hasClass(player) && spot7.hasClass(player)
-) {
-    return true
-  } else {
-    return false
-  }
-}
-
 const addWin = function (player) {
   let win = parseInt($('#' + player).text())
   win += 1
   $('#' + player).text(win)
 }
 
-// const makeArray = function () {
-//   $('#board li').each(function (index) {
-//     boardArray[index] = $('#' + (index + 1)).text()
-//   })
-// }
+const makeArray = function () {
+  $('#board li').each(function (index) {
+    boardArray[index] = $('#' + (index + 1)).text()
+  })
+}
 
 const updateHeadline = function (player) {
   $('#gameResult').text('Player ' + player.toUpperCase() + ' wins this time!')

@@ -106,6 +106,7 @@ const checkGameSuccess = function (data) {
 }
 
 const checkGameError = function (error) {
+  console.log(error)
 }
 module.exports = {
   createGameSuccess,

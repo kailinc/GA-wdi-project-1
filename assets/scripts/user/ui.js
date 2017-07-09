@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const boardEvents = require('../board/boardEvents.js')
 
 const onSignUpSuccess = function () {
   $('.signUp input').css('background-color', '#228a11')
@@ -27,9 +28,11 @@ const onChangeError = function () {
 const onLogOutSuccess = function () {
   // console.log('logged out')
   store.user = null
+  $('#board li').removeClass('disable').removeClass('x').removeClass('o').text(' ')
   $('.userForms input').css('background-color', 'white')
   $('.userOut').css('display', 'none')
   $('.userIn').css('display', 'block')
+  $('#gameResult').text('Tic Tac Toe')
 }
 
 const onLogOutError = function () {

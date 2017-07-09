@@ -13,9 +13,11 @@ const onSignInSuccess = function (data) {
   $('.signIn input').css('background-color', '#228a11')
   $('.userOut').css('display', 'block')
   $('.userIn').css('display', 'none')
+  $('#signInMsg').text('')
 }
 const onSignInError = function () {
   $('.signIn input').css('background-color', 'red')
+  $('#signInMsg').text('Either you ented your username/password wrong or the account does not exist').css('color', 'red')
 }
 
 const onChangeSuccess = function () {

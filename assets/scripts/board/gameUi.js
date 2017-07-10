@@ -60,7 +60,6 @@ const updateStats = function (data) {
   $('#loses').text('Player 1 lost ' + loses + ' games.')
   $('#games').text('Player 1 played ' + totalGames + ' games.')
   $('#winPercent').text('Player 1 won ' + winPercent + '% of user\'s games.')
-  console.log(data.length)
 }
 
 const checkWin = function (array) {

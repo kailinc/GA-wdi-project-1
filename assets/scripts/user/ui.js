@@ -8,6 +8,7 @@ const onSignUpSuccess = function () {
 
 const onSignUpError = function () {
   $('.signUp input').css('background-color', 'red')
+  $('#signInMsg').text('That account is taken')
 }
 const onSignInSuccess = function (data) {
   store.user = data.user

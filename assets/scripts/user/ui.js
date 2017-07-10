@@ -5,6 +5,7 @@ const boardEvents = require('../board/boardEvents.js')
 const onSignUpSuccess = function () {
   $('.signUp input').css('background-color', '#228a11')
 }
+
 const onSignUpError = function () {
   $('.signUp input').css('background-color', 'red')
 }

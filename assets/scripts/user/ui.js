@@ -4,6 +4,7 @@ const boardEvents = require('../board/boardEvents.js')
 
 const onSignUpSuccess = function () {
   $('.signUp input').css('background-color', '#228a11')
+  $('#signInMsg').text('Successfully Created Account').css('color', 'white')
 }
 
 const onSignUpError = function () {
@@ -19,14 +20,16 @@ const onSignInSuccess = function (data) {
 }
 const onSignInError = function () {
   $('.signIn input').css('background-color', 'red')
-  $('#signInMsg').text('Either you ented your username/password wrong or the account does not exist').css('color', 'red')
+  $('#signInMsg').text('Either you ented your username/password wrong or the account does not exist').css('color', 'white')
 }
 
 const onChangeSuccess = function () {
   $('.changePassword input').css('background-color', '#228a11')
+  $('#signInMsg').text('Your password is successfully changed!')
 }
 const onChangeError = function () {
   $('.changePassword input').css('background-color', 'red')
+  $('#signInMsg').text('There was a problem with changing password')
 }
 
 const onLogOutSuccess = function () {
@@ -37,6 +40,7 @@ const onLogOutSuccess = function () {
   $('.userOut').css('display', 'none')
   $('.userIn').css('display', 'block')
   $('#gameResult').text('Tic Tac Toe')
+  $('#signInMsg').text('')
 }
 
 const onLogOutError = function () {

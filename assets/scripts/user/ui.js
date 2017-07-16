@@ -42,7 +42,7 @@ const onLogOutSuccess = function () {
   $('#gameResult').text('Tic Tac Toe')
   $('#signInMsg').text('')
   $('.totalWins h3').text('')
-  $('.localStats').text('')
+  $('.localStats').text('0')
 }
 
 const onLogOutError = function () {

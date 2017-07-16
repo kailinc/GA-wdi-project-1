@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body class="container-fluid">
+
+      <div class="container navBar">
+        <div class="row">
+          <div class="col-xs-4 box nav small">
+            <h5>Kai</h5>
+            <h3 id="signInMsg"></h3>
+          </div>
+          <div class="col-xs-2 box nav small userIn">
+            <h5>Sign Up</h5>
+            <form class="signUp userForms">
+              <input  class="formText" name="credentials[email]" type="text" placeholder="Email">
+              <input  class="formText" name="credentials[password]" type="password" placeholder="Password">
+              <input  class="formText" name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="col-xs-2 box nav small userIn">
+            <h5>Login</h5>
+            <form class="signIn userForms">
+              <input  class="formText" name="credentials[email]" type="text" placeholder="Email">
+              <input  class="formText" name="credentials[password]" type="password" placeholder="Password">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="col-xs-2 box nav small userOut">
+            <h5>Change Password</h5>
+            <form class="changePassword userForms">
+              <input class="formText" name="passwords[old]" type="password" placeholder="Old Password">
+              <input class="formText" name="passwords[new]" type="password" placeholder="New Password">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="col-xs-2 box nav small userOut">
+            <h5>Log Out</h5>
+            <form class="logOut">
+              <input type="submit" value="Log Out">
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="userOut">
+        <form class="totalWins">
+          <input type="submit" value="See Stats">
+          <h3 id="wins"></h3>
+          <h3 id="loses"></h3>
+          <h3 id="games"></h3>
+          <h3 id="winPercent"></h3>
+        </form>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 box player1">
+            <h1>Player 1's Wins</h1>
+            <h1 class='localStats' id="x">0</h1>
+          </div>
+          <div class="col-xs-6 box dashboard">
+            <h1 id="gameResult">Tic Tac Toe</h1>
+          </div>
+          <div class="col-xs-3 box player2">
+            <h1>Player 2's Wins</h1>
+            <h1 class='localStats' id="o">0</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="gameBoard userOut">
+        <ul id="board">
+  				<li class="spot disable x" id="1">1</li>
+  				<li class="spot disable x" id="2">2</li>
+  				<li class="spot disable o" id="3">3</li>
+  				<li class="spot disable o" id="4">4</li>
+  				<li class="spot disable x" id="5">5</li>
+  				<li class="spot disable o" id="6">6</li>
+  				<li class="spot disable x" id="7">7</li>
+  				<li class="spot disable o" id="8">8</li>
+  				<li class="spot disable x" id="9">9</li>
+  			</ul>
+
+        <div style="clear: both;"></div>
+        <form class="playBtn userOut">
+          <input type="submit" id='playBtn' value="Play">
+        </form>
+
+      <div class="footer">
+        <p>Made By Kai</p>
+      </div>
+
+
+    </body>
+</html>

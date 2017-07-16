@@ -34,9 +34,15 @@ const onLogOut = function (event) {
     .then(userUi.onLogOutSuccess)
     .catch(userUi.onLogOutError)
 }
+
+const onClearForm = function (event) {
+  event.preventDefault()
+  $('.formText').val('')
+}
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onLogOut
+  onLogOut,
+  onClearForm
 }

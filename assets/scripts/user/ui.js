@@ -41,6 +41,7 @@ const onLogOutSuccess = function () {
   $('.userIn').css('display', 'block')
   $('#gameResult').text('Tic Tac Toe')
   $('#signInMsg').text('')
+  $('.totalWins h3').text('')
 }
 
 const onLogOutError = function () {
